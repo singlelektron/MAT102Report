@@ -89,172 +89,6 @@
 \vfill\pagebreak
 %Start each section on a new page 
 
- 
-
- 
- 
-\section{Introduction}
-
- 
-
-The level of English writing in a report must be appropriate. 
-Attention should be paid to correct spelling, grammar, punctuation, sentence structure and clarity of style.
-
-Here are some examples on how to cite papers and books. There are a journal paper \cite{einstein}, 
-followed by two journal papers \cite{crank47,Kato1987}, and a book \cite{dirac}. 
-
-\noindent
-The following shows how to use list.
-\begin{enumerate}[(a)]
-\item Students should do individual projects.  
-
- 
-
- 
-
-\item The report must be typed using Latex. The main text should be at least 20 pages, and preferably not more than 50 pages, with font size 12 and 1.5 line spacing. Title page, table of contents and references are not counted.
-\end{enumerate}
- 
- 
- The following shows nested lists. 
- \begin{enumerate}[1.]
- \item The followings are examples of how to include tables.
-
-\begin{enumerate}[(i)]
-\item Table 1
-
-\begin{table}[h]
-  \centering
-    \begin{tabular}{| l c r |r|}
-    \hline
-    1 & 2 & 3 & 4\\
-    \hline
-    5 & 6 & 7 & 9 \\
-    \hline
-    10 & 11 & 12 & 13 \\
-    \hline
-    \end{tabular}
-  \caption{A simple table v1} \label{c1.T.simpletable}
-\end{table}
-
-
-\vfill\pagebreak
-\item Table 2
-
-
-\begin{table}[h]
-  \centering
-    \begin{tabular}{|| l c r  r||}
-    \hline
-    \hline
-    1 & 2 & 3 & 4\\
-    \hline
-    5 & 6 & 7 & 9 \\
-    \hline
-    10 & 11 & 12 & 13 \\
-    \hline
-    \hline
-    \end{tabular}
-    
-  \caption{A simple table v2} \label{c2.T.simpletable}
-\end{table}
-
-\end{enumerate}
-
-\item The following is an example of figure.
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.3 ]{euler}
-  \caption{A picture of Euler.} \label{c1.F.Euler}
-\end{figure}
-\end{enumerate}
-
- 
- \vfill\pagebreak
- 
-\section{Equations}
-Different templates for equations.
-
-\begin{enumerate}[(a)]
-\item Using “\$\$”.
-
-$$x=x'\cos\theta-y'\sin\theta,\quad
-y=x'\sin\theta+y'\cos\theta.$$
-
-\item Using “align”.
-\begin{align*} 
-x=&x'\cos\theta-y'\sin\theta,\\
-y=&x'\sin\theta+y'\cos\theta.\end{align*}
-
-
-
-\item Using “equation”. You can use alignment tab by adding “split” environment. 
-\begin{equation}\label{eq1}
-\begin{split}x=&x'\cos\theta-y'\sin\theta,\\
-y=&x'\sin\theta+y'\cos\theta.
-\end{split}
-\end{equation}The equation \eqref{eq1} is standard.
-
-
-\item Using “gather”. Each line will automatically centered. You can use alignment tab by adding “split” environment. 
-\begin{gather*}
-\begin{split}x=&x'\cos\theta-y'\sin\theta,\\
-y=&x'\sin\theta+y'\cos\theta.
-\end{split}\\
-x=x'\cos\theta-y'\sin\theta,\\
-y=x'\sin\theta+y'\cos\theta.
-\end{gather*}
-
- 
-\end{enumerate}
- 
- \vfill\pagebreak %Start a new section on a new page
-\section{Sections}
-
-If a section contains more than one topic, you need to organize them into   subsections.
-
- 
-
-\subsection{Title of the subsection}
-
-\begin{definition}
-	Statement of the definition.
-\end{definition}
-
-\begin{theorem}\label{thm.1}
-	Statement of theorem.
-\end{theorem}
-
-\begin{lemma}
-	Statement of the lemma.
-\end{lemma}
-
-\begin{corollary}
-	Statement of the corollary.
-\end{corollary}
-
-\begin{proof}
-	Proof of the collary.
-	
-	This follows from the equation
-	\begin{equation}\label{eq2}
-	E=mc^2.\end{equation}
-\end{proof}
-
-
-\begin{proof}[Proof of Theorem \ref{thm.1}]
-	Proof of Theorem \ref{thm.1}.
-	
-	This can be proved by consider the following cases.
-\end{proof}
-
-\begin{remark}
-You need to give explanations to your steps. Use formal language. Do not include symbols like $\Rightarrow$ in your writings. 
-\end{remark}
-
- \vfill\pagebreak
-
-
 % Note: Per instruction, Cover Page and TOC are omitted. Starting directly with Section 1.
 
 \section{Taylor's Theorem}
@@ -304,6 +138,24 @@ Then there exists a point $x$ between $\alpha$ and $\beta$ such that
     f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n.
 \end{equation}
 \end{theorem}
+\subsubsection{Construction of the Taylor Polynomial.}
+The Taylor polynomial $P(t)$ defined in \eqref{eq:poly_def} is constructed so as to approximate the function $f$ in a neighborhood of the point $\alpha$. 
+Specifically, the coefficients of $P(t)$ are chosen to match the values of $f$ and its derivatives at $\alpha$ up to order $n-1$.
+This ensures that $P(t)$ captures the local behavior of $f$ near $\alpha$ as accurately as possible using a polynomial of degree $n-1$.
+
+\subsubsection{Matching Derivatives at the Center.}
+An essential property of the Taylor polynomial is that it agrees with $f$ at $\alpha$ not only in value, but also in derivatives up to order $n-1$. 
+More precisely, for each integer $k$ satisfying $0 \leq k \leq n-1$, we have
+\begin{equation}
+    P^{(k)}(\alpha) = f^{(k)}(\alpha).
+\end{equation}
+This can be verified directly by differentiating \eqref{eq:poly_def} term by term and evaluating at $t = \alpha$.
+As a consequence, the Taylor polynomial $P(t)$ shares the same Taylor data as $f$ at $\alpha$ up to order $n-1$.
+
+\subsubsection{Interpretation.}
+The condition $P^{(k)}(\alpha) = f^{(k)}(\alpha)$ for $k = 0, 1, \dots, n-1$ characterizes the Taylor polynomial uniquely.
+Among all polynomials of degree at most $n-1$, $P(t)$ is the unique one whose graph has the same properties with the graph of $f$ at the point $\alpha$.
+The remainder term in \eqref{eq:taylor_thm} then measures how the behavior of $f$ deviates from this polynomial approximation as one moves from $\alpha$ to $\beta$.
 
 In this context, $P(t)$ is the Taylor polynomial of degree $n-1$ centered at $\alpha$. The term $\frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n$ is known as the remainder term (specifically, the Lagrange form of the remainder). It quantifies the error committed when approximating $f(\beta)$ by $P(\beta)$.
 
