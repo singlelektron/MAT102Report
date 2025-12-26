@@ -255,49 +255,10 @@ You need to give explanations to your steps. Use formal language. Do not include
  \vfill\pagebreak
 
 
-
- 
-
-
-
-
-
- 
-\appendix
-%\include{appendix}
-%%------------------------------------------------------------------------------------------------------------------------
-% begin of appendix
-%%------------------------------------------------------------------------------------------------------------------------
-\section{Title for Appendix A}
-
-This is Appendix A. 
-%%------------------------------------------------------------------------------------------------------------------------
-% end of appendix
-%%------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-\vfill\pagebreak
-
-%Start bibliography on a new page.
-
- 
-\bibliography{refs}   %refs.bib is the bibliography database
-\bibliographystyle{alpha} % alphabetical style
-
-
-
 % Note: Per instruction, Cover Page and TOC are omitted. Starting directly with Section 1.
 
-\section{Introduction}
+\section{Taylor's Theorem}
+\subsection{Introduction of Taylor's Theorem}
 
 The approximation of complex functions by simpler ones is a cornerstone of mathematical analysis and numerical methods. Among the various tools available for such approximations, polynomials are often preferred due to their ease of manipulation; they are easy to differentiate, integrate, and evaluate. Taylor's Theorem provides the theoretical foundation for approximating differentiable functions using polynomials.
 
@@ -305,7 +266,7 @@ The theorem connects the value of a function and its derivatives at a specific p
 
 In this paper, we explore the rigorous formulation of Taylor's Theorem as presented in classical analysis texts (specifically following the notation of Rudin). We will define the Taylor polynomial, state the theorem formally, and provide a detailed proof that relies on the repeated application of Rolle's Theorem. Furthermore, we will analyze the remainder term—the error inherent in the approximation—and demonstrate the utility of the theorem through specific examples.
 
-\section{Mathematical Preliminaries}
+\subsection{Mathematical Preliminaries}
 
 Before establishing Taylor's Theorem, it is necessary to recall certain fundamental properties of continuous and differentiable functions. The proof of Taylor's Theorem relies heavily on Rolle's Theorem.
 
@@ -328,7 +289,8 @@ If $f$ is a real continuous function on $[a, b]$ which is differentiable on $(a,
 
 As noted in standard analysis literature, Taylor's Theorem can be viewed as an extension of the Mean Value Theorem for $n=1$. Where the Mean Value Theorem provides a linear approximation, Taylor's Theorem provides a polynomial approximation of degree $n-1$.
 
-\section{Statement of Taylor's Theorem}
+
+\subsection{Statement of Taylor's Theorem}
 
 We now turn to the formal statement of the theorem. We adopt the notation where $\alpha$ and $\beta$ represent distinct points in the domain, and we construct a polynomial $P(t)$ centered at $\alpha$.
 
@@ -345,7 +307,7 @@ Then there exists a point $x$ between $\alpha$ and $\beta$ such that
 
 In this context, $P(t)$ is the Taylor polynomial of degree $n-1$ centered at $\alpha$. The term $\frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n$ is known as the remainder term (specifically, the Lagrange form of the remainder). It quantifies the error committed when approximating $f(\beta)$ by $P(\beta)$.
 
-\section{Proof of the Theorem}
+\subsection{Proof of the Theorem}
 
 The proof involves constructing an auxiliary function that satisfies the conditions of Rolle's Theorem. We proceed step-by-step, following the logic outlined in standard analysis (referencing the provided source material).
 
@@ -411,7 +373,7 @@ Substituting this value of $M$ back into equation (\ref{eq:def_M}) yields the th
 \end{equation}
 \qed
 
-\section{Analysis of the Approximation}
+\subsection{Analysis of the Approximation}
 
 The strength of Taylor's Theorem lies not just in the polynomial construction, but in the explicit form of the remainder term. 
 
@@ -431,7 +393,7 @@ It is worth reiterating the comment made in the theorem statement's source. For 
 \end{equation}
 This is exactly the Mean Value Theorem. Thus, Taylor's Theorem is the natural generalization of linear approximation to higher-order polynomial approximation.
 
-\section{Examples and Applications}
+\subsection{Examples and Applications}
 
 To illustrate the utility of Taylor's Theorem, we apply it to common transcendental functions.
 
@@ -474,6 +436,28 @@ This rapid decay of the error term explains why Taylor polynomials are extremely
 Taylor's Theorem serves as a bridge between the discrete world of algebra and the continuous world of analysis. By proving that any sufficiently smooth function can be locally approximated by a polynomial with a precisely defined error term, it enables rigorous estimation and computation.
 
 The proof presented here, relying on the construction of an auxiliary function $g(t)$ and the recursive application of Rolle's Theorem, demonstrates the elegance of classical analysis. By choosing $M$ such that the auxiliary function vanishes at the endpoints, and utilizing the properties of the polynomial at the origin $\alpha$, we force the existence of a high-order derivative root that quantifies the approximation error. This theorem remains one of the most powerful tools in both theoretical and applied mathematics.
+
+
+\appendix
+%\include{appendix}
+%%------------------------------------------------------------------------------------------------------------------------
+% begin of appendix
+%%------------------------------------------------------------------------------------------------------------------------
+\section{Title for Appendix A}
+
+This is Appendix A. 
+%%------------------------------------------------------------------------------------------------------------------------
+% end of appendix
+%%------------------------------------------------------------------------------------------------------------------------
+
+
+\vfill\pagebreak
+
+%Start bibliography on a new page.
+
+ 
+\bibliography{refs}   %refs.bib is the bibliography database
+\bibliographystyle{alpha} % alphabetical style
 
 \end{document}
 
