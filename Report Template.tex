@@ -143,7 +143,7 @@ This ensures that $P(t)$ captures the local behavior of $f$ near $\alpha$ as acc
 \subsubsection{Matching Derivatives at the Center.}
 An essential property of the Taylor polynomial is that it agrees with $f$ at $\alpha$ not only in value, but also in derivatives up to order $n-1$. 
 More precisely, for each integer $k$ satisfying $0 \leq k \leq n-1$, we have
-\begin{equation}
+\begin{equation} \label{Tatlor_pro}
     P^{(k)}(\alpha) = f^{(k)}(\alpha).
 \end{equation}
 This can be verified directly by differentiating \eqref{eq:poly_def} term by term and evaluating at $t = \alpha$.
@@ -189,7 +189,7 @@ Recall the definition of $P(t)$ from equation (\ref{eq:poly_def}):
 \begin{equation}
     P(t) = f(\alpha) + f'(\alpha)(t-\alpha) + \cdots + \frac{f^{(n-1)}(\alpha)}{(n-1)!}(t-\alpha)^{n-1}.
 \end{equation}
-The derivatives of $P(t)$ at $t=\alpha$ match the derivatives of $f(t)$ at $t=\alpha$ for all orders $k$ where $0 \leq k \leq n-1$. Specifically:
+The derivatives of $P(t)$ at $t=\alpha$ match the derivatives of $f(t)$ at $t=\alpha$ for all orders $k$ where $0 \leq k \leq n-1$. So we have \eqref{Tatlor_pro}:
 \begin{equation}
     P^{(k)}(\alpha) = f^{(k)}(\alpha), \quad \text{for } k = 0, \dots, n-1.
 \end{equation}
@@ -224,12 +224,16 @@ Substituting this value of \(M\) back into equation (\ref{eq:def_M}) yields the 
 
 \subsection{The Remainder Term}
 The term \(R_n(\beta) = \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n\) is often called the \textit{Lagrange Remainder}. It bears a striking resemblance to the next term in the polynomial sequence, except the derivative is evaluated at an unknown point \(x\) rather than \(\alpha\).
-
 This form allows us to estimate the error of approximation. If we know bounds on the \(n\)-th derivative of \(f\), we can bound the error. Suppose \(|f^{(n)}(t)| \le K\) for all \(t\) between \(\alpha\) and \(\beta\). Then:
 \begin{equation}
     |f(\beta) - P(\beta)| \le \frac{K}{n!} |\beta - \alpha|^n.
 \end{equation}
 Since the factorial \(n!\) grows much faster than the power term \(|\beta - \alpha|^n\) as \(n \to \infty\) (assuming \(\beta\) is within a radius of convergence), this error tends to zero, allowing the Taylor series to converge to the function.
+In the language of asymptotic notation commonly used in discrete mathematics, this remainder term may be expressed as
+\[
+R_n(\beta) = o\!\left( (\beta - \alpha)^n \right) \quad \text{as } \beta \to \alpha,
+\]
+which indicates that the error term is of higher order than $(\beta-\alpha)^n$ in the limit as $\beta$ approaches $\alpha$.
 
 \subsection{Relationship to Mean Value Theorem}
 It is worth reiterating the comment made in the theorem statement's source. For $n=1$, the sum in equation (\ref{eq:poly_def}) becomes just the term for $k=0$, which is $f(\alpha)$. The formula becomes:
@@ -241,13 +245,55 @@ This is exactly the Mean Value Theorem. Thus, Taylor's Theorem is the natural ge
 \subsection{Examples and Applications}
 
 To illustrate the utility of Taylor's Theorem, we apply it to exercises in our textbook.
+\begin{example}[Exercise \textbf{5.15}]\label{example1}
+Suppose $a \in \mathbb{R}$, $f$ is a twice-differentiable real function on $(a,\infty)$, and $M_0$, $M_1$, $M_2$
+are the least upper bounds of $|f(x)|$, $|f'(x)|$, and $|f''(x)|$, respectively, on $(a,\infty)$. Then
+\[
+M_1^2 \le 4 M_0 M_2.
+\]
 
-\begin{example}[Exercise 5.15]\label{example1}
+\begin{proof}
+Fix $x>a$ and let $h>0$. By Taylor's theorem applied to $f$ on the interval $(x, x+2h)$, there exists a point
+$\xi \in (x, x+2h)$ such that
+\[
+f(x+2h)
+= f(x) + 2h f'(x) + 2h^2 f''(\xi).
+\]
+Rearranging terms gives
+\[
+f'(x) = \frac{f(x+2h)-f(x)}{2h} - h f''(\xi).
+\]
 
+Taking absolute values and using the definitions of $M_0$ and $M_2$, we obtain
+\[
+|f'(x)|
+\le \frac{|f(x+2h)| + |f(x)|}{2h} + h|f''(\xi)|
+\le \frac{M_0}{h} + hM_2.
+\]
+
+Since this inequality holds for all $h>0$, we minimize the right-hand side with respect to $h$.
+The function
+\[
+\phi(h)=hM_2+\frac{M_0}{h}
+\]
+achieves its minimum at $h=\sqrt{M_0/M_2}$, yielding
+\[
+|f'(x)| \le 2\sqrt{M_0M_2}.
+\]
+Taking the supremum over all $x>a$, we conclude that
+\[
+M_1 \le 2\sqrt{M_0M_2},
+\]
+and hence
+\[
+M_1^2 \le 4M_0M_2.
+\]
+\end{proof}
 \end{example}
 
 
-\begin{example}[Exercise 5.18]\label{example2}
+
+\begin{example}[Exercise \textbf{5.18}]\label{example2}
 Suppose \(f\) is a real function on \([a, b]\), \(n\) is a positive integer, and \(f^{(n-1)}\) exists for every \(t \in [a, b]\). Let \(\alpha, \beta\), and \(P\) be as in Taylor's theorem (5.15). Define
 \[Q(t) = \frac{f(t) - f(\beta)}{t - \beta}\]
 for \(t \in [a, b], t \neq \beta\), differentiate
