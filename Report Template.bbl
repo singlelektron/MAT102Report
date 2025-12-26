@@ -1,0 +1,25 @@
+\begin{thebibliography}{Kat87}
+
+\bibitem[CN47]{crank47}
+John {Crank} and Phyllis {Nicolson}.
+\newblock {A practical method for numerical evaluation of solutions of partial
+  differential equations of the heat-conduction type}.
+\newblock {\em P. Camb. Philos. Soc.}, 43:50--64, 1947.
+
+\bibitem[Dir81]{dirac}
+Paul Adrien~Maurice Dirac.
+\newblock {\em The Principles of Quantum Mechanics}.
+\newblock International series of monographs on physics. Clarendon Press, 1981.
+
+\bibitem[Ein05]{einstein}
+Albert Einstein.
+\newblock {Zur Elektrodynamik bewegter K{\"o}rper}. ({German}) [{On} the
+  electrodynamics of moving bodies].
+\newblock {\em Annalen der Physik}, 322(10):891--921, 1905.
+
+\bibitem[Kat87]{Kato1987}
+T.~Kato.
+\newblock On nonlinear schr\"{o}dinger equation equations.
+\newblock {\em Ann. Inst. H. Poincar\'{e} Phys. Th\'{e}or.}, 46:113--129, 1987.
+
+\end{thebibliography}

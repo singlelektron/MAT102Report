@@ -1,0 +1,479 @@
+\documentclass[12pt]{article}  
+ 
+\usepackage{times,fancyhdr,lastpage}
+ \usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,enumerate,amsbsy,amsthm,graphicx,titlesec,color}
+
+ \linespread{1.5}
+\pagestyle{fancy}
+
+        
+  
+% Set No indentation
+\setlength\parindent{0pt}
+
+% Environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{xca}[theorem]{Exercise}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+ \numberwithin{equation}{section}
+ 
+\titleformat{\section}
+  {\normalfont\Large\bfseries }{\textbf{Section \thesection}\;\;}
+  {0em}{}
+  
+   \cfoot{\fontsize{11pt}{11pt}\selectfont{Page \thepage\ of \pageref{LastPage}}}
+  
+  
+  \newcommand{\shorttitle}{Report on Calculus I} %A shorter title of the report. It appears as left header.
+  
+  
+\begin{document}
+
+\lhead{\shorttitle}
+\rhead{202509/MAT102} %academic session and course code
+
+%Title Page
+\begin{titlepage}
+\centering
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=1 ]{xmumlogo}
+  \end{figure}
+
+	 
+	
+	\vspace{3cm}
+	 
+	{\huge\bfseries REPORT ON CALCULUS I: \par}
+	{\Large Subsequences and Cauchy Sequences \\ from Chapter 3 of W. Rudin\par} %Full title of the report, use all capital letters
+	\vspace{2cm}
+	{\large  NAME ONE} %Your name, use all capital letters
+	
+	{\large  MAT2000001} %Your student ID, use all capital letter
+
+	\vspace{1cm}
+	{\large  NAME TWO} %Your name, use all capital letters
+	
+	{\large  MAT2000002} %Your student ID, use all capital letter
+
+	\vspace{1cm}
+	{\large  NAME THREE} %Your name, use all capital letters
+	
+	{\large  MAT2000003} %Your student ID, use all capital letter
+
+        \vspace{1cm}
+	{\large  NAME FOUR} %Your name, use all capital letters
+	
+	{\large  MAT2000004} %Your student ID, use all capital letter
+	\vfill
+	 
+
+% Bottom of the page
+	{\large \today\par}
+
+ \end{titlepage}
+ 
+\vfill\pagebreak
+ 
+\tableofcontents                     % automatically generate and include a table of contents
+
+\vfill\pagebreak
+%Start each section on a new page 
+
+ 
+
+ 
+ 
+\section{Introduction}
+
+ 
+
+The level of English writing in a report must be appropriate. 
+Attention should be paid to correct spelling, grammar, punctuation, sentence structure and clarity of style.
+
+Here are some examples on how to cite papers and books. There are a journal paper \cite{einstein}, 
+followed by two journal papers \cite{crank47,Kato1987}, and a book \cite{dirac}. 
+
+\noindent
+The following shows how to use list.
+\begin{enumerate}[(a)]
+\item Students should do individual projects.  
+
+ 
+
+ 
+
+\item The report must be typed using Latex. The main text should be at least 20 pages, and preferably not more than 50 pages, with font size 12 and 1.5 line spacing. Title page, table of contents and references are not counted.
+\end{enumerate}
+ 
+ 
+ The following shows nested lists. 
+ \begin{enumerate}[1.]
+ \item The followings are examples of how to include tables.
+
+\begin{enumerate}[(i)]
+\item Table 1
+
+\begin{table}[h]
+  \centering
+    \begin{tabular}{| l c r |r|}
+    \hline
+    1 & 2 & 3 & 4\\
+    \hline
+    5 & 6 & 7 & 9 \\
+    \hline
+    10 & 11 & 12 & 13 \\
+    \hline
+    \end{tabular}
+  \caption{A simple table v1} \label{c1.T.simpletable}
+\end{table}
+
+
+\vfill\pagebreak
+\item Table 2
+
+
+\begin{table}[h]
+  \centering
+    \begin{tabular}{|| l c r  r||}
+    \hline
+    \hline
+    1 & 2 & 3 & 4\\
+    \hline
+    5 & 6 & 7 & 9 \\
+    \hline
+    10 & 11 & 12 & 13 \\
+    \hline
+    \hline
+    \end{tabular}
+    
+  \caption{A simple table v2} \label{c2.T.simpletable}
+\end{table}
+
+\end{enumerate}
+
+\item The following is an example of figure.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3 ]{euler}
+  \caption{A picture of Euler.} \label{c1.F.Euler}
+\end{figure}
+\end{enumerate}
+
+ 
+ \vfill\pagebreak
+ 
+\section{Equations}
+Different templates for equations.
+
+\begin{enumerate}[(a)]
+\item Using “\$\$”.
+
+$$x=x'\cos\theta-y'\sin\theta,\quad
+y=x'\sin\theta+y'\cos\theta.$$
+
+\item Using “align”.
+\begin{align*} 
+x=&x'\cos\theta-y'\sin\theta,\\
+y=&x'\sin\theta+y'\cos\theta.\end{align*}
+
+
+
+\item Using “equation”. You can use alignment tab by adding “split” environment. 
+\begin{equation}\label{eq1}
+\begin{split}x=&x'\cos\theta-y'\sin\theta,\\
+y=&x'\sin\theta+y'\cos\theta.
+\end{split}
+\end{equation}The equation \eqref{eq1} is standard.
+
+
+\item Using “gather”. Each line will automatically centered. You can use alignment tab by adding “split” environment. 
+\begin{gather*}
+\begin{split}x=&x'\cos\theta-y'\sin\theta,\\
+y=&x'\sin\theta+y'\cos\theta.
+\end{split}\\
+x=x'\cos\theta-y'\sin\theta,\\
+y=x'\sin\theta+y'\cos\theta.
+\end{gather*}
+
+ 
+\end{enumerate}
+ 
+ \vfill\pagebreak %Start a new section on a new page
+\section{Sections}
+
+If a section contains more than one topic, you need to organize them into   subsections.
+
+ 
+
+\subsection{Title of the subsection}
+
+\begin{definition}
+	Statement of the definition.
+\end{definition}
+
+\begin{theorem}\label{thm.1}
+	Statement of theorem.
+\end{theorem}
+
+\begin{lemma}
+	Statement of the lemma.
+\end{lemma}
+
+\begin{corollary}
+	Statement of the corollary.
+\end{corollary}
+
+\begin{proof}
+	Proof of the collary.
+	
+	This follows from the equation
+	\begin{equation}\label{eq2}
+	E=mc^2.\end{equation}
+\end{proof}
+
+
+\begin{proof}[Proof of Theorem \ref{thm.1}]
+	Proof of Theorem \ref{thm.1}.
+	
+	This can be proved by consider the following cases.
+\end{proof}
+
+\begin{remark}
+You need to give explanations to your steps. Use formal language. Do not include symbols like $\Rightarrow$ in your writings. 
+\end{remark}
+
+ \vfill\pagebreak
+
+
+
+ 
+
+
+
+
+
+ 
+\appendix
+%\include{appendix}
+%%------------------------------------------------------------------------------------------------------------------------
+% begin of appendix
+%%------------------------------------------------------------------------------------------------------------------------
+\section{Title for Appendix A}
+
+This is Appendix A. 
+%%------------------------------------------------------------------------------------------------------------------------
+% end of appendix
+%%------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+\vfill\pagebreak
+
+%Start bibliography on a new page.
+
+ 
+\bibliography{refs}   %refs.bib is the bibliography database
+\bibliographystyle{alpha} % alphabetical style
+
+
+
+% Note: Per instruction, Cover Page and TOC are omitted. Starting directly with Section 1.
+
+\section{Introduction}
+
+The approximation of complex functions by simpler ones is a cornerstone of mathematical analysis and numerical methods. Among the various tools available for such approximations, polynomials are often preferred due to their ease of manipulation; they are easy to differentiate, integrate, and evaluate. Taylor's Theorem provides the theoretical foundation for approximating differentiable functions using polynomials.
+
+The theorem connects the value of a function and its derivatives at a specific point to the value of the function at a nearby point. Historically rooted in the works of Brook Taylor and Colin Maclaurin, the theorem generalizes the Mean Value Theorem to higher-order derivatives. 
+
+In this paper, we explore the rigorous formulation of Taylor's Theorem as presented in classical analysis texts (specifically following the notation of Rudin). We will define the Taylor polynomial, state the theorem formally, and provide a detailed proof that relies on the repeated application of Rolle's Theorem. Furthermore, we will analyze the remainder term—the error inherent in the approximation—and demonstrate the utility of the theorem through specific examples.
+
+\section{Mathematical Preliminaries}
+
+Before establishing Taylor's Theorem, it is necessary to recall certain fundamental properties of continuous and differentiable functions. The proof of Taylor's Theorem relies heavily on Rolle's Theorem.
+
+\begin{definition}[Continuity and Differentiability]
+Let $f$ be a function defined on an interval $[a, b]$. We say $f$ is continuous on $[a, b]$ if $\lim_{t \to c} f(t) = f(c)$ for every $c \in [a, b]$. We say $f$ is differentiable on $(a, b)$ if the derivative $f'(t)$ exists for every $t \in (a, b)$.
+\end{definition}
+
+The pivotal tool for the proof of Taylor's Theorem is Rolle's Theorem, which guarantees the existence of a stationary point between two roots of a differentiable function.
+
+\begin{theorem}[Rolle's Theorem]
+Suppose $g$ is a real function that is continuous on $[a, b]$ and differentiable on $(a, b)$. If $g(a) = g(b)$, then there exists some $x \in (a, b)$ such that $g'(x) = 0$.
+\end{theorem}
+
+\begin{theorem}[The Mean Value Theorem]
+If $f$ is a real continuous function on $[a, b]$ which is differentiable on $(a, b)$, then there is a point $x \in (a, b)$ at which
+\begin{equation}
+    f(b) - f(a) = (b - a)f'(x).
+\end{equation}
+\end{theorem}
+
+As noted in standard analysis literature, Taylor's Theorem can be viewed as an extension of the Mean Value Theorem for $n=1$. Where the Mean Value Theorem provides a linear approximation, Taylor's Theorem provides a polynomial approximation of degree $n-1$.
+
+\section{Statement of Taylor's Theorem}
+
+We now turn to the formal statement of the theorem. We adopt the notation where $\alpha$ and $\beta$ represent distinct points in the domain, and we construct a polynomial $P(t)$ centered at $\alpha$.
+
+\begin{theorem}[Taylor's Theorem]
+Suppose $f$ is a real function on $[a, b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a, b]$, and $f^{(n)}(t)$ exists for every $t \in (a, b)$. Let $\alpha, \beta$ be distinct points of $[a, b]$. Define the polynomial $P(t)$ as:
+\begin{equation} \label{eq:poly_def}
+    P(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!} (t - \alpha)^k.
+\end{equation}
+Then there exists a point $x$ between $\alpha$ and $\beta$ such that
+\begin{equation} \label{eq:taylor_thm}
+    f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n.
+\end{equation}
+\end{theorem}
+
+In this context, $P(t)$ is the Taylor polynomial of degree $n-1$ centered at $\alpha$. The term $\frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n$ is known as the remainder term (specifically, the Lagrange form of the remainder). It quantifies the error committed when approximating $f(\beta)$ by $P(\beta)$.
+
+\section{Proof of the Theorem}
+
+The proof involves constructing an auxiliary function that satisfies the conditions of Rolle's Theorem. We proceed step-by-step, following the logic outlined in standard analysis (referencing the provided source material).
+
+First, we treat the error between the function and the polynomial at point $\beta$ as a quantity determined by a constant $M$. Let $M$ be the number defined by the equation:
+\begin{equation} \label{eq:def_M}
+    f(\beta) = P(\beta) + M(\beta - \alpha)^n.
+\end{equation}
+Our goal is to prove that this constant $M$ is actually equal to $\frac{f^{(n)}(x)}{n!}$ for some $x$ between $\alpha$ and $\beta$.
+
+We define a new function $g(t)$ for $a \leq t \leq b$ as follows:
+\begin{equation} \label{eq:def_g}
+    g(t) = f(t) - P(t) - M(t - \alpha)^n.
+\end{equation}
+This function $g(t)$ represents the difference between the actual function $f(t)$ and the approximated value using the Taylor polynomial plus the specific error term structure scaled by $M$.
+
+Therefore, differentiating (\ref{eq:def_g}) \(n\) times yields:
+\begin{equation} \label{eq:g_nth}
+    g^{(n)}(t) = f^{(n)}(t) - 0 - n!M = f^{(n)}(t) - n!M, \quad \text{for } a < t < b.
+\end{equation}
+To find the root of the \(n\)-th derivative, we examine the behavior of \(g(t)\) and its lower-order derivatives at the endpoints \(\alpha\) and \(\beta\).
+
+\textbf{At point \(\beta\):}
+From equation \eqref{eq:def_M}, we know that \(f(\beta) - P(\beta) = M(\beta - \alpha)^n\). Substituting this into the definition of \(g(t)\) at \(t=\beta\):
+\begin{equation}
+    g(\beta) = f(\beta) - P(\beta) - M(\beta - \alpha)^n = 0.
+\end{equation}
+
+\textbf{At point $\alpha$:}
+Recall the definition of $P(t)$ from equation (\ref{eq:poly_def}):
+\begin{equation}
+    P(t) = f(\alpha) + f'(\alpha)(t-\alpha) + \cdots + \frac{f^{(n-1)}(\alpha)}{(n-1)!}(t-\alpha)^{n-1}.
+\end{equation}
+The derivatives of $P(t)$ at $t=\alpha$ match the derivatives of $f(t)$ at $t=\alpha$ for all orders $k$ where $0 \leq k \leq n-1$. Specifically:
+\begin{equation}
+    P^{(k)}(\alpha) = f^{(k)}(\alpha), \quad \text{for } k = 0, \dots, n-1.
+\end{equation}
+Also, the term $M(t-\alpha)^n$ and its first $n-1$ derivatives vanish at $t=\alpha$.
+Therefore, for the function $g(t)$, we have:
+\begin{equation} \label{eq:g_derivs_at_alpha}
+    g(\alpha) = g'(\alpha) = \cdots = g^{(n-1)}(\alpha) = 0.
+\end{equation}
+
+\textbf{Recursive Steps:}
+We now have the necessary boundary conditions to apply Rolle's Theorem repeatedly.
+\begin{enumerate}
+    \item Since $g(\alpha) = 0$ and $g(\beta) = 0$, Rolle's Theorem implies there exists a point $x_1$ between $\alpha$ and $\beta$ such that $g'(x_1) = 0$.
+    \item Now consider the first derivative $g'(t)$. We know from (\ref{eq:g_derivs_at_alpha}) that $g'(\alpha) = 0$. From step 1, we know $g'(x_1) = 0$. By applying Rolle's Theorem to $g'(t)$ on the interval between $\alpha$ and $x_1$, there exists a point $x_2$ between $\alpha$ and $x_1$ such that $g''(x_2) = 0$.
+    \item We continue this logic. Suppose we have found a point $x_k$ between $\alpha$ and $x_{k-1}$ such that $g^{(k)}(x_k) = 0$. Since $g^{(k)}(\alpha) = 0$ (for $k < n$), applying Rolle's Theorem to $g^{(k)}(t)$ yields a point $x_{k+1}$ such that $g^{(k+1)}(x_{k+1}) = 0$.
+\end{enumerate}
+
+After $n$ steps, we arrive at the conclusion that there exists a point $x_n$ (let us simply call it $x$) between $\alpha$ and $x_{n-1}$ (and thus between $\alpha$ and $\beta$) such that:
+\begin{equation}
+    g^{(n)}(x) = 0.
+\end{equation}
+
+Using equation (\ref{eq:g_nth}), this implies:
+\begin{equation}
+    f^{(n)}(x) - n!M = 0 \implies M = \frac{f^{(n)}(x)}{n!}.
+\end{equation}
+Substituting this value of $M$ back into equation (\ref{eq:def_M}) yields the theorem statement:
+\begin{equation}
+    f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n.
+\end{equation}
+\qed
+
+\section{Analysis of the Approximation}
+
+The strength of Taylor's Theorem lies not just in the polynomial construction, but in the explicit form of the remainder term. 
+
+\subsection{The Remainder Term}
+The term $R_n(\beta) = \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n$ is often called the \textit{Lagrange Remainder}. It bears a striking resemblance to the next term in the polynomial sequence, except the derivative is evaluated at an unknown point $x$ rather than $\alpha$.
+
+This form allows us to estimate the error of approximation. If we know bounds on the $n$-th derivative of $f$, we can bound the error. Suppose $|f^{(n)}(t)| \le K$ for all $t$ between $\alpha$ and $\beta$. Then:
+\begin{equation}
+    |f(\beta) - P(\beta)| \le \frac{K}{n!} |\beta - \alpha|^n.
+\end{equation}
+Since the factorial $n!$ grows much faster than the power term $|\beta - \alpha|^n$ as $n \to \infty$ (assuming $\beta$ is within a radius of convergence), this error tends to zero, allowing the Taylor series to converge to the function.
+
+\subsection{Relationship to Mean Value Theorem}
+It is worth reiterating the comment made in the theorem statement's source. For $n=1$, the sum in equation (\ref{eq:poly_def}) becomes just the term for $k=0$, which is $f(\alpha)$. The formula becomes:
+\begin{equation}
+    f(\beta) = f(\alpha) + f'(x)(\beta - \alpha).
+\end{equation}
+This is exactly the Mean Value Theorem. Thus, Taylor's Theorem is the natural generalization of linear approximation to higher-order polynomial approximation.
+
+\section{Examples and Applications}
+
+To illustrate the utility of Taylor's Theorem, we apply it to common transcendental functions.
+
+\subsection{Example 1: The Exponential Function}
+Let $f(t) = e^t$, $\alpha = 0$, and let us find the approximation at an arbitrary $\beta$.
+The derivatives are simple: $f^{(k)}(t) = e^t$ for all $k$.
+At $\alpha = 0$, $f^{(k)}(0) = e^0 = 1$.
+The Taylor polynomial $P(t)$ of degree $n-1$ is:
+\begin{equation}
+    P(t) = \sum_{k=0}^{n-1} \frac{1}{k!} t^k = 1 + t + \frac{t^2}{2!} + \cdots + \frac{t^{n-1}}{(n-1)!}.
+\end{equation}
+Taylor's Theorem states that for any $\beta$, there exists $x$ between $0$ and $\beta$ such that:
+\begin{equation}
+    e^\beta = \sum_{k=0}^{n-1} \frac{\beta^k}{k!} + \frac{e^x}{n!} \beta^n.
+\end{equation}
+This explicitly shows the residual error. Since $x < \beta$ (assuming $\beta > 0$), the error is bounded by $\frac{e^\beta \beta^n}{n!}$.
+
+\subsection{Example 2: The Cosine Function}
+Consider $f(t) = \cos(t)$ with $\alpha = 0$.
+The derivatives cycle in a pattern of 4:
+\begin{align*}
+    f(0) &= \cos(0) = 1 \\
+    f'(0) &= -\sin(0) = 0 \\
+    f''(0) &= -\cos(0) = -1 \\
+    f'''(0) &= \sin(0) = 0 \\
+    f^{(4)}(0) &= \cos(0) = 1
+\end{align*}
+Because odd-order derivatives are zero at the origin, the Taylor polynomial contains only even powers of $t$. For a polynomial of degree $2n$:
+\begin{equation}
+    P_{2n}(t) = 1 - \frac{t^2}{2!} + \frac{t^4}{4!} - \cdots + (-1)^n \frac{t^{2n}}{(2n)!}.
+\end{equation}
+The remainder term involves the derivative of order $2n+1$ (or higher depending on formulation). Since all derivatives of sine and cosine are bounded by 1 in absolute value ($|f^{(k)}(x)| \le 1$), the error for approximating $\cos(\beta)$ is bounded by:
+\begin{equation}
+    |R| \le \frac{|\beta|^{2n+1}}{(2n+1)!}.
+\end{equation}
+This rapid decay of the error term explains why Taylor polynomials are extremely efficient for computing trigonometric values.
+
+\section{Conclusion}
+
+Taylor's Theorem serves as a bridge between the discrete world of algebra and the continuous world of analysis. By proving that any sufficiently smooth function can be locally approximated by a polynomial with a precisely defined error term, it enables rigorous estimation and computation.
+
+The proof presented here, relying on the construction of an auxiliary function $g(t)$ and the recursive application of Rolle's Theorem, demonstrates the elegance of classical analysis. By choosing $M$ such that the auxiliary function vanishes at the endpoints, and utilizing the properties of the polynomial at the origin $\alpha$, we force the existence of a high-order derivative root that quantifies the approximation error. This theorem remains one of the most powerful tools in both theoretical and applied mathematics.
+
+\end{document}
+
