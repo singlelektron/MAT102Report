@@ -1,13 +1,13 @@
 \documentclass[12pt]{article}  
  
-\usepackage{times,fancyhdr,lastpage}
+\usepackage{fancyhdr,lastpage}
  \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{amsmath,amssymb,enumerate,amsbsy,amsthm,graphicx,titlesec,color}
 
  \linespread{1.5}
 \pagestyle{fancy}
 
-        
+
   
 % Set No indentation
 \setlength\parindent{0pt}
@@ -249,7 +249,7 @@ If a section contains more than one topic, you need to organize them into   subs
 \end{proof}
 
 \begin{remark}
-You need to give explanations to your steps. Use formal language. Do not include symbols like $\Rightarrow$ in your writings. 
+You need to give explanations to your steps. Use formal language. Do not include symbols like \(\Rightarrow\) in your writings. 
 \end{remark}
 
  \vfill\pagebreak
@@ -271,7 +271,7 @@ In this paper, we explore the rigorous formulation of Taylor's Theorem as presen
 Before establishing Taylor's Theorem, it is necessary to recall certain fundamental properties of continuous and differentiable functions. The proof of Taylor's Theorem relies heavily on Rolle's Theorem.
 
 \begin{definition}[Continuity and Differentiability]
-Let $f$ be a function defined on an interval $[a, b]$. We say $f$ is continuous on $[a, b]$ if $\lim_{t \to c} f(t) = f(c)$ for every $c \in [a, b]$. We say $f$ is differentiable on $(a, b)$ if the derivative $f'(t)$ exists for every $t \in (a, b)$.
+Let \(f\) be a function defined on an interval \([a, b]\). We say \(f\) is continuous on \([a, b]\) if \(\lim_{t \to c} f(t) = f(c)\) for every \(c \in [a, b]\). We say \(f\) is differentiable on \((a, b)\) if the derivative \(f'(t)\) exists for every \(t \in (a, b)\).
 \end{definition}
 
 The pivotal tool for the proof of Taylor's Theorem is Rolle's Theorem, which guarantees the existence of a stationary point between two roots of a differentiable function.
@@ -286,9 +286,6 @@ If $f$ is a real continuous function on $[a, b]$ which is differentiable on $(a,
     f(b) - f(a) = (b - a)f'(x).
 \end{equation}
 \end{theorem}
-
-As noted in standard analysis literature, Taylor's Theorem can be viewed as an extension of the Mean Value Theorem for $n=1$. Where the Mean Value Theorem provides a linear approximation, Taylor's Theorem provides a polynomial approximation of degree $n-1$.
-
 
 \subsection{Statement of Taylor's Theorem}
 
@@ -353,9 +350,9 @@ Therefore, for the function $g(t)$, we have:
 \textbf{Recursive Steps:}
 We now have the necessary boundary conditions to apply Rolle's Theorem repeatedly.
 \begin{enumerate}
-    \item Since $g(\alpha) = 0$ and $g(\beta) = 0$, Rolle's Theorem implies there exists a point $x_1$ between $\alpha$ and $\beta$ such that $g'(x_1) = 0$.
-    \item Now consider the first derivative $g'(t)$. We know from (\ref{eq:g_derivs_at_alpha}) that $g'(\alpha) = 0$. From step 1, we know $g'(x_1) = 0$. By applying Rolle's Theorem to $g'(t)$ on the interval between $\alpha$ and $x_1$, there exists a point $x_2$ between $\alpha$ and $x_1$ such that $g''(x_2) = 0$.
-    \item We continue this logic. Suppose we have found a point $x_k$ between $\alpha$ and $x_{k-1}$ such that $g^{(k)}(x_k) = 0$. Since $g^{(k)}(\alpha) = 0$ (for $k < n$), applying Rolle's Theorem to $g^{(k)}(t)$ yields a point $x_{k+1}$ such that $g^{(k+1)}(x_{k+1}) = 0$.
+    \item Since \(g(\alpha) = 0\) and \(g(\beta) = 0\), Rolle's Theorem implies there exists a point \(x_1\) between \(\alpha\) and \(\beta\) such that \(g'(x_1) = 0\).
+        \item Now consider the first derivative \(g'(t)\). We know from (\ref{eq:g_derivs_at_alpha}) that \(g'(\alpha) = 0\). From step 1, we know \(g'(x_1) = 0\). By applying Rolle's Theorem to \(g'(t)\) on the interval between \(\alpha\) and \(x_1\), there exists a point \(x_2\) between \(\alpha\) and \(x_1\) such that \(g''(x_2) = 0\).
+    \item We continue this logic. Suppose we have found a point \(x_k\) between \(\alpha\) and \(x_{k-1}\) such that \(g^{(k)}(x_k) = 0\). Since \(g^{(k)}(\alpha) = 0\) (for \(k < n\)), applying Rolle's Theorem to \(g^{(k)}(t)\) yields a point \(x_{k+1}\) such that \(g^{(k+1)}(x_{k+1}) = 0\).
 \end{enumerate}
 
 After $n$ steps, we arrive at the conclusion that there exists a point $x_n$ (let us simply call it $x$) between $\alpha$ and $x_{n-1}$ (and thus between $\alpha$ and $\beta$) such that:
@@ -367,24 +364,20 @@ Using equation (\ref{eq:g_nth}), this implies:
 \begin{equation}
     f^{(n)}(x) - n!M = 0 \implies M = \frac{f^{(n)}(x)}{n!}.
 \end{equation}
-Substituting this value of $M$ back into equation (\ref{eq:def_M}) yields the theorem statement:
+Substituting this value of \(M\) back into equation (\ref{eq:def_M}) yields the theorem statement:
 \begin{equation}
     f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n.
 \end{equation}
 \qed
 
-\subsection{Analysis of the Approximation}
-
-The strength of Taylor's Theorem lies not just in the polynomial construction, but in the explicit form of the remainder term. 
-
 \subsection{The Remainder Term}
-The term $R_n(\beta) = \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n$ is often called the \textit{Lagrange Remainder}. It bears a striking resemblance to the next term in the polynomial sequence, except the derivative is evaluated at an unknown point $x$ rather than $\alpha$.
+The term \(R_n(\beta) = \frac{f^{(n)}(x)}{n!} (\beta - \alpha)^n\) is often called the \textit{Lagrange Remainder}. It bears a striking resemblance to the next term in the polynomial sequence, except the derivative is evaluated at an unknown point \(x\) rather than \(\alpha\).
 
-This form allows us to estimate the error of approximation. If we know bounds on the $n$-th derivative of $f$, we can bound the error. Suppose $|f^{(n)}(t)| \le K$ for all $t$ between $\alpha$ and $\beta$. Then:
+This form allows us to estimate the error of approximation. If we know bounds on the \(n\)-th derivative of \(f\), we can bound the error. Suppose \(|f^{(n)}(t)| \le K\) for all \(t\) between \(\alpha\) and \(\beta\). Then:
 \begin{equation}
     |f(\beta) - P(\beta)| \le \frac{K}{n!} |\beta - \alpha|^n.
 \end{equation}
-Since the factorial $n!$ grows much faster than the power term $|\beta - \alpha|^n$ as $n \to \infty$ (assuming $\beta$ is within a radius of convergence), this error tends to zero, allowing the Taylor series to converge to the function.
+Since the factorial \(n!\) grows much faster than the power term \(|\beta - \alpha|^n\) as \(n \to \infty\) (assuming \(\beta\) is within a radius of convergence), this error tends to zero, allowing the Taylor series to converge to the function.
 
 \subsection{Relationship to Mean Value Theorem}
 It is worth reiterating the comment made in the theorem statement's source. For $n=1$, the sum in equation (\ref{eq:poly_def}) becomes just the term for $k=0$, which is $f(\alpha)$. The formula becomes:
@@ -395,48 +388,51 @@ This is exactly the Mean Value Theorem. Thus, Taylor's Theorem is the natural ge
 
 \subsection{Examples and Applications}
 
-To illustrate the utility of Taylor's Theorem, we apply it to common transcendental functions.
+To illustrate the utility of Taylor's Theorem, we apply it to exercises in our textbook.
 
-\subsection{Example 1: The Exponential Function}
-Let $f(t) = e^t$, $\alpha = 0$, and let us find the approximation at an arbitrary $\beta$.
-The derivatives are simple: $f^{(k)}(t) = e^t$ for all $k$.
-At $\alpha = 0$, $f^{(k)}(0) = e^0 = 1$.
-The Taylor polynomial $P(t)$ of degree $n-1$ is:
-\begin{equation}
-    P(t) = \sum_{k=0}^{n-1} \frac{1}{k!} t^k = 1 + t + \frac{t^2}{2!} + \cdots + \frac{t^{n-1}}{(n-1)!}.
-\end{equation}
-Taylor's Theorem states that for any $\beta$, there exists $x$ between $0$ and $\beta$ such that:
-\begin{equation}
-    e^\beta = \sum_{k=0}^{n-1} \frac{\beta^k}{k!} + \frac{e^x}{n!} \beta^n.
-\end{equation}
-This explicitly shows the residual error. Since $x < \beta$ (assuming $\beta > 0$), the error is bounded by $\frac{e^\beta \beta^n}{n!}$.
+\begin{example}[Exercise 5.15]\label{example1}
 
-\subsection{Example 2: The Cosine Function}
-Consider $f(t) = \cos(t)$ with $\alpha = 0$.
-The derivatives cycle in a pattern of 4:
-\begin{align*}
-    f(0) &= \cos(0) = 1 \\
-    f'(0) &= -\sin(0) = 0 \\
-    f''(0) &= -\cos(0) = -1 \\
-    f'''(0) &= \sin(0) = 0 \\
-    f^{(4)}(0) &= \cos(0) = 1
-\end{align*}
-Because odd-order derivatives are zero at the origin, the Taylor polynomial contains only even powers of $t$. For a polynomial of degree $2n$:
-\begin{equation}
-    P_{2n}(t) = 1 - \frac{t^2}{2!} + \frac{t^4}{4!} - \cdots + (-1)^n \frac{t^{2n}}{(2n)!}.
-\end{equation}
-The remainder term involves the derivative of order $2n+1$ (or higher depending on formulation). Since all derivatives of sine and cosine are bounded by 1 in absolute value ($|f^{(k)}(x)| \le 1$), the error for approximating $\cos(\beta)$ is bounded by:
-\begin{equation}
-    |R| \le \frac{|\beta|^{2n+1}}{(2n+1)!}.
-\end{equation}
-This rapid decay of the error term explains why Taylor polynomials are extremely efficient for computing trigonometric values.
+\end{example}
 
-\section{Conclusion}
+
+\begin{example}[Exercise 5.18]\label{example2}
+Suppose \(f\) is a real function on \([a, b]\), \(n\) is a positive integer, and \(f^{(n-1)}\) exists for every \(t \in [a, b]\). Let \(\alpha, \beta\), and \(P\) be as in Taylor's theorem (5.15). Define
+\[Q(t) = \frac{f(t) - f(\beta)}{t - \beta}\]
+for \(t \in [a, b], t \neq \beta\), differentiate
+\[f(t) - f(\beta) = (t - \beta)Q(t)\]
+\(n-1\) times at \(t = \alpha\), and derive the following version of Taylor's theorem:
+\[f(\beta) = P(\beta) + \frac{Q^{(n-1)}(\alpha)}{(n-1)!} (\beta - \alpha)^n.\]
+\end{example}
+\begin{proof}[\textbf{Proof}]
+    We differentiate the equation \(f(t) - f(\beta) = (t - \beta)Q(t)\) to get
+    \[f'(t) = Q(t) + (t - \beta)Q'(t).\]
+    We differentiate the equation above to get
+    \[f''(t) = 2Q'(t) + (t - \beta)Q''(t).\]
+    Continuing this process, we find that the \(k\)-th derivative of \(f(t)\) can be expressed as
+    \[f^{(k)}(t) = kQ^{(k-1)}(t) + (t - \beta)Q^{(k)}(t).\]
+    Evaluating this at \(t = \alpha\), we have
+    \[f^{(k)}(\alpha) = kQ^{(k-1)}(\alpha) + (\alpha - \beta)Q^{(k)}(\alpha).\]
+    Plugging this into the Taylor polynomial \(P(\beta)\), we get
+    \begin{align*}
+        P(\beta) &= \sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!} (\beta - \alpha)^k \\
+                 &= f(\alpha) + \sum_{k=1}^{n-1} \frac{kQ^{(k-1)}(\alpha) + (\alpha - \beta)Q^{(k)}(\alpha)}{k!} (\beta - \alpha)^k \\
+                 &= f(\alpha) + \sum_{k=1}^{n-1} \frac{Q^{(k-1)}(\alpha)}{(k-1)!} (\beta - \alpha)^k - \sum_{k=1}^{n-1} \frac{Q^{(k)}(\alpha)}{k!} (\beta - \alpha)^{k+1}. \\
+                 &= f(\alpha) + \sum_{k=0}^{n-2} \frac{Q^{(k)}(\alpha)}{k!} (\beta - \alpha)^{k+1} - \sum_{k=1}^{n-1} \frac{Q^{(k)}(\alpha)}{k!} (\beta - \alpha)^{k+1}. \\
+                 &= f(\alpha) + Q(\alpha)(\beta - \alpha) - \frac{Q^{(n-1)}(\alpha)}{(n-1)!} (\beta - \alpha)^n. \\
+                 &= f(\beta) - \frac{Q^{(n-1)}(\alpha)}{(n-1)!} (\beta - \alpha)^n.
+    \end{align*}
+    Rearranging gives the desired result
+    \[f(\beta) = P(\beta) + \frac{Q^{(n-1)}(\alpha)}{(n-1)!} (\beta - \alpha)^n.\]
+\end{proof}
+
+
+\subsection{Conclusion}
 
 Taylor's Theorem serves as a bridge between the discrete world of algebra and the continuous world of analysis. By proving that any sufficiently smooth function can be locally approximated by a polynomial with a precisely defined error term, it enables rigorous estimation and computation.
 
 The proof presented here, relying on the construction of an auxiliary function $g(t)$ and the recursive application of Rolle's Theorem, demonstrates the elegance of classical analysis. By choosing $M$ such that the auxiliary function vanishes at the endpoints, and utilizing the properties of the polynomial at the origin $\alpha$, we force the existence of a high-order derivative root that quantifies the approximation error. This theorem remains one of the most powerful tools in both theoretical and applied mathematics.
 
+\vfill\pagebreak
 
 \appendix
 %\include{appendix}
